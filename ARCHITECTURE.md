@@ -509,7 +509,7 @@ Built-in styles include `innerHTML`, `outerHTML`, `beforebegin`, `afterbegin`, `
 flowchart TD
   RESP[Parsed response fragment] --> SELECTOOB[hx-select-oob selection]
   SELECTOOB --> OOB[Find hx-swap-oob elements]
-  OOB --> PARTIAL[Find template[hx] partials]
+  OOB --> PARTIAL["Find template[hx] partials"]
   PARTIAL --> SELECT[hx-select main-fragment selection]
   SELECT --> PRESERVE[Match hx-preserve elements by id]
   PRESERVE --> MAIN[Perform main target swap]
