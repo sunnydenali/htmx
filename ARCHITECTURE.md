@@ -541,7 +541,7 @@ sequenceDiagram
   Settle->>DOM: Apply final attributes and remove htmx-settling
   Settle->>Process: Process inserted element subtree
   Process-->>DOM: Install htmx behaviours on new content
-  Settle->>DOM: Focus autofocus element; emit htmx:load/afterSettle
+  Settle->>DOM: Focus autofocus element and emit htmx:load/afterSettle
   Settle->>DOM: Apply scroll/show options
 ```
 
