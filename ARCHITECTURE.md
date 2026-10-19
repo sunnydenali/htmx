@@ -538,7 +538,7 @@ sequenceDiagram
   Swap->>DOM: Temporarily retain matching id attributes for transition
   Swap->>Settle: Queue attribute restoration and load tasks
   Note over Swap,Settle: default settle delay is 20 ms
-  Settle->>DOM: Apply final attributes; remove htmx-settling
+  Settle->>DOM: Apply final attributes and remove htmx-settling
   Settle->>Process: Process inserted element subtree
   Process-->>DOM: Install htmx behaviours on new content
   Settle->>DOM: Focus autofocus element; emit htmx:load/afterSettle
