@@ -292,7 +292,7 @@ flowchart TD
   D & E --> F[addTriggerHandler]
   F --> G{trigger kind}
   G -->|load| H[Run once after optional delay]
-  G -->|every interval| I[Recursive timer; stop when detached/cancelled]
+  G -->|every interval| I["Recursive timer; stop when detached/cancelled"]
   G -->|revealed| J[Scroll/resize visibility check]
   G -->|intersect| K[IntersectionObserver]
   G -->|DOM event| L[Install event listener]
@@ -459,12 +459,12 @@ flowchart TD
   E -- no --> F[Resolve history update]
   F --> G[Resolve responseHandling by HTTP status]
   G --> H[Apply HX-Retarget, HX-Reswap, HX-Reselect]
-  H --> I[htmx:beforeSwap; listeners may mutate details]
+  H --> I["htmx:beforeSwap; listeners may mutate details"]
   I --> J{shouldSwap?}
   J -- no --> K[Emit response error if configured]
   J -- yes --> L[Extension transformResponse]
   L --> M[Save current history if needed]
-  M --> N[swap(target, response, specification)]
+  M --> N["Call swap with target, response, and specification"]
   N --> O[After-swap and after-settle trigger headers]
 ```
 
@@ -495,7 +495,7 @@ flowchart TD
   M --> N[Handle hx-preserve elements]
   N --> O[Main swapWithStyle]
   H & O --> P[Restore focus/selection and title]
-  P --> Q[Fire htmx:afterSwap; schedule settle]
+  P --> Q["Fire htmx:afterSwap; schedule settle"]
   Q --> R[Run settle tasks, htmx:afterSettle, scrolling]
 ```
 
@@ -724,11 +724,11 @@ classDiagram
 ```mermaid
 flowchart TD
   EVAL[Expression evaluation: filters, hx-vars, hx-on] --> ALLOW{config.allowEval?}
-  ALLOW -- no --> ERR[htmx:evalDisallowedError; use fallback]
+  ALLOW -- no --> ERR["htmx:evalDisallowedError; use fallback"]
   ALLOW -- yes --> RUN[Evaluate configured expression]
   SCRIPT[Scripts in response fragment] --> SCRIPTS{config.allowScriptTags?}
   SCRIPTS -- no --> STRIP[Remove script tags]
-  SCRIPTS -- yes --> NORMALIZE[Normalize executable scripts; optionally apply nonce]
+  SCRIPTS -- yes --> NORMALIZE["Normalize executable scripts; optionally apply nonce"]
   URL[Final request URL] --> ORIGIN{selfRequestsOnly and same origin?}
   ORIGIN -- no --> BLOCK[htmx:invalidPath]
   ORIGIN -- yes --> VALIDATE[htmx:validateUrl event]
